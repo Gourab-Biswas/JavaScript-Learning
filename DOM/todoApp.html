@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple ToDo</title>
+    <style>
+        body{
+            height: 100%;
+            width: 100%;
+            display: grid;
+            place-items: center;
+            
+        }
+        div{
+            /* display: grid; */
+            /* place-items: center; */
+            text-align: left;
+        }
+        p{
+            cursor: pointer;
+        }
+       
+        
+        input{
+            padding: 3px 1px;
+            width: 210px;
+        }
+        button{
+            width: 70px;
+            padding: 3px 1px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 id="heading">SIMPLE TODO APP</h1>
+        <input type="text" id="input-area"/>
+        <button id="btn">Submit</button>
+        <div id="list-section"></div>
+    </div>
+    <script>
+        let inputField = document.getElementById("input-area")
+        let button = document.getElementById("btn")
+        let listArea = document.getElementById("list-section")
+        
+
+        let addTodo = () => {
+            // console.log(inputField.value)
+            let newElement = document.createElement("p")
+            newElement.textContent = inputField.value
+            // console.log(newElement)
+            listArea.append(newElement)
+            inputField.value = ""
+        }
+
+        button.addEventListener("click",()=>{
+            addTodo();
+        })
+        listArea.addEventListener("click",(event)=>{
+            console.log(event.target)
+            let elem = event.target
+            elem.remove()
+        })
+       
+    </script>
+</body>
+</html>
