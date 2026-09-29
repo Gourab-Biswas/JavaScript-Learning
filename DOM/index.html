@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HI THIS IS GOURAB BISWAS</h1>
+    <hr>
+    <p>I am learning javascript dom object</p>
+    <p>I am learning javascript </p>
+    <script>
+        let headElement = document.head
+        let bodyElement = document.body
+        // let allchilds = bodyElement.childNodes
+        let allchilds = bodyElement.children
+        let firstElem = bodyElement.firstElementChild
+        let lastElem = bodyElement.lastElementChild
+        let sibling = firstElem.nextElementSibling
+        let presSibling = sibling.previousElementSibling
+        let parent = presSibling.parentElement
+        let close1 = lastElem.previousElementSibling.closest("body");
+        console.log(close1);
+    </script>
+</body>
+</html>
