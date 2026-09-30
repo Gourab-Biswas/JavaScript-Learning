@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            place-items: center;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <input type="text" placeholder="type something...">
+        <div class="output">
+            <p id="press">Key Pressed:</p>
+            <p id="keycode">Key Code:</p>
+            <p id="char">Character Code:</p>
+            <p id="type">Event Type:</p>
+        </div>
+    </section>
+    <script>
+        let input = document.querySelector("input")
+        // console.log(input)
+        input.addEventListener("keydown",(event)=>{
+            // console.log(event)
+            document.getElementById("press").innerText=`Key Pressed: ${event.key}`
+            document.getElementById("keycode").innerText=`Key Code: ${event.code}`
+            document.getElementById("char").innerText=`Character Code: ${event.key.charCodeAt(0)}`
+            document.getElementById("type").innerText=`Event Type: ${event.type}`
+        })
+        // input.addEventListener("keyup",(event)=>{
+        //     // console.log(event)
+        //     document.getElementById("press").innerText=`Key Pressed: ${event.key}`
+        //     document.getElementById("keycode").innerText=`Key Code: ${event.code}`
+        //     document.getElementById("char").innerText=`Character Code: ${event.key.charCodeAt(0)}`
+        //     document.getElementById("type").innerText=`Event Type: ${event.type}`
+        // })
+    </script>
+</body>
+</html>

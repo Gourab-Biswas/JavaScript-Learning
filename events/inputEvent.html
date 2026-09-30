@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            place-items: center;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <input type="text" placeholder="type something..." name="username">
+        <div class="output">
+            <p id="val">input vale:</p>
+            <p id="nam">input name:</p>
+            <p id="itype">input type:</p>
+            <p id="etype">Event Type:</p>
+        </div>
+    </section>
+    <script>
+        let input = document.querySelector("input")
+        console.log(input)
+
+        let handelEvent = (event)=>{
+            console.log(event)
+            document.getElementById("val").innerText = `input vale: ${event.data}`
+            document.getElementById("nam").innerText = `input name: ${event.target.name}`
+            document.getElementById("itype").innerText = `input type: ${event.inputType}`
+            document.getElementById("etype").innerText = `Event Type: ${event.type}`
+        }
+
+        input.addEventListener("input",handelEvent)
+        // input.addEventListener("change",handelEvent)
+    </script>
+</body>
+</html>
