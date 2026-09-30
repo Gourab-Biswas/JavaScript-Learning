@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            /* width: 100vw; */
+            background-color: antiquewhite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div{
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+            border: 1px solid black;
+        }
+        section{
+            text-align: center;
+            display: grid;
+            gap: 1rem;
+
+        }
+        .abc{
+            background-color: black;
+        }
+        .double{
+            border-radius: 50%;
+        }
+        .over{
+            translate: -100px;
+        }
+        .down{
+            background-color: tomato;
+
+        }
+        .up{
+            background-color: blue;
+        }
+        .out{
+            translate:0px 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+        <div ></div>
+        <button id="btn">Click Me</button>
+    </section>
+
+    <script>
+        let btn = document.getElementById("btn")
+        let divArea = document.querySelector("div")
+        
+        console.log(divArea)
+
+        let mouseevent2 = ()=>{
+            divArea.classList.add("double")
+        }
+        let mouseevent3 = ()=>{
+            divArea.classList.add("over")
+        }
+        let mouseevent7 = ()=>{
+            divArea.classList.add("out")
+        }
+        let mouseevent6 = ()=>{
+            divArea.classList.add("down")
+        }
+        let mouseevent4 = ()=>{
+            divArea.classList.add("up")
+        }
+
+
+
+
+        btn.addEventListener("click",()=>{
+            // divArea.style.backgroundColor = "black"
+        })
+
+
+        btn.addEventListener("dblclick",mouseevent2)
+        divArea.addEventListener("mouseover",mouseevent3)
+        divArea.addEventListener("mouseup",mouseevent4)
+        divArea.addEventListener("mousedown",mouseevent6)
+        divArea.addEventListener("mouseout",mouseevent7)
+    </script>
+</body>
+</html>
