@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+            background-image: linear-gradient(to right, #051937,#008793);
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #btns{
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 10px;
+        }
+        .btn{
+            padding: 15px 30px;
+            font-size: larger;
+            border-radius: 20px;
+            cursor: pointer;
+            border: 3px solid black;
+            font-weight: 700;
+            text-shadow: 1px 1px 1px black;
+        }
+        #btn1{
+            background-color: rgb(235, 217, 21);
+        }
+        #btn2{
+            background-color: rgb(150, 224, 23);
+        }
+        #container{
+            /* border: 5px solid white; */
+            width: 400px;
+            height: 150px;
+            padding: 20px;
+        }
+        p{
+            text-align: center;
+            font-weight: 400;
+            margin-bottom: 5px;
+            font-size: small;
+        }
+        #copycode{
+            text-align: center;
+            background-color: rgb(112, 121, 128);
+            border-left: 2px solid red;
+            border-radius: 5px;
+            padding: 5px 0px;
+            cursor:pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="btns">
+            <button class="btn" id="btn1">#051937</button>
+            <button class="btn" id="btn2">#008793</button>
+        </div>
+        <p>Tap to copy Code</p>
+        <div id="copycode">
+            background-image: linear-gradient(to right, #051937,#008793);
+        </div>
+    </div>
+    <script>
+        let btn1 = document.getElementById("btn1")
+        let btn2 = document.getElementById("btn2")
+        let page = document.querySelector("body")
+        let copycode = document.getElementById("copycode");
+
+        let totalCode = "0123456789abcdef"
+        let color1 = "#051937";
+        let color2 = "#008793";
+
+
+        let hexcode = () =>{
+            let finalcode = "#"
+            for(let i =0;i<6;i++){
+            let x = Math.floor((Math.random())*16)
+            // console.log(x)
+            console.log(totalCode[x])
+            finalcode += totalCode[x]
+            }
+            return finalcode
+        }
+
+
+        let btnclick1 = () =>{
+            color1 = hexcode()
+            // console.log(code)
+            btn1.innerText = color1
+            page.style.backgroundImage = `linear-gradient(to right,${color1},${color2})`;
+            copycode.innerText = `background-image: linear-gradient(to right,${color1},${color2})`
+            
+        }
+
+        let btnclick2 = () =>{
+            color2 = hexcode()
+            // console.log(code)
+            btn2.innerText = color2
+            page.style.backgroundImage = `linear-gradient(to right,${color1},${color2})`;
+            copycode.innerText = `background-image: linear-gradient(to right,${color1},${color2})`
+        }
+
+
+
+        btn1.addEventListener("click",btnclick1)
+        btn2.addEventListener("click",btnclick2)
+        copycode.addEventListener("click",()=>{
+            let text = copycode.innerText
+            navigator.clipboard.writeText(text)
+            alert("text copied")
+        })
+    </script>
+</body>
+</html>
