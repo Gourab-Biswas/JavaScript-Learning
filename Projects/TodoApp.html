@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            background-color: rgb(29, 28, 28);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8rem;
+            height: 100%;
+            width: 100%;
+        }
+
+        h1 {
+            color: rgb(249, 180, 91);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        #inputvalue {
+            padding: 1rem;
+            border-radius: 2rem;
+            border: 2px solid;
+            width: 30rem;
+            margin-right: 2rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .btn {
+            border-radius: 2rem;
+            border: 2px solid black;
+            text-shadow: 0 0 2px black;
+            padding: 1rem 2rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            background: #FF8008;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #FFC837, #FF8008);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #FFC837, #FF8008);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        .todo-list-elem {
+            margin-top: 2rem;
+            /* background-color: #FFC837; */
+            width: 30rem;
+
+            & .main-todo-div {
+                display: grid;
+                grid-template-columns: 1fr 0.3fr;
+                /* place-items: center; */
+                align-items: center;
+                margin-bottom: 1.5rem;
+
+                & li {
+                    color: #fff;
+                    list-style-type: circle;
+                    /* border-style: inset; */
+                    margin-left: 2.5rem;
+                    font-size: 2rem;
+                }
+
+                & .dletebtn {
+                    background: #FF8008;
+                    /* fallback for old browsers */
+                    background: -webkit-linear-gradient(to right, #FFC837, #FF8008);
+                    /* Chrome 10-25, Safari 5.1-6 */
+                    background: linear-gradient(to right, #FFC837, #FF8008);
+                    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                    border-radius: 2rem;
+                    color: #fff;
+                    font-weight: 600;
+                    padding: 0.7rem 2rem;
+                    border: 2px solid black;
+                    text-shadow: 0 0 2px black;
+                    margin-left: 1rem;
+                    cursor: pointer;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Todo List</h1>
+    <br>
+    <form>
+        <div>
+            <input type="text" id="inputvalue" autocomplete="off">
+            <button class="btn">Add Todo</button>
+        </div>
+        <section class="todo-list-elem">
+            <!-- <div class="main-todo-div">
+                <li>Apple</li>
+                <button class="dletebtn" type="button">Delete</button>
+            </div> -->
+        </section>
+    </form>
+
+    <script>
+        let todoListElem = document.querySelector(".todo-list-elem")
+        let inputvalue = document.getElementById("inputvalue")
+        let addTodo = document.querySelector(".btn")
+        // let dletebtn = document.querySelector(".dletebtn")
+
+        let todoList = JSON.parse(localStorage.getItem("localTodo")) || []
+
+
+        let showTodo = (curElem) => {
+
+            // console.log(todoList.includes(curElem))
+
+            let divElem = document.createElement("div")
+            divElem.classList.add("main-todo-div")
+            divElem.innerHTML = `<li>${curElem}</li>
+                <button class="dletebtn">Delete</button>`
+            console.log(divElem)
+            todoListElem.append(divElem)
+        }
+
+
+        todoList.forEach((curElem) => {
+            showTodo(curElem);
+        })
+
+
+        let addlocalStorage = () => {
+            let uniqueTodo = [...new Set(todoList)]
+            localStorage.setItem("localTodo", JSON.stringify(uniqueTodo))
+        }
+
+
+        let addTodoElem = (e) => {
+            e.preventDefault();
+
+            // let todo = inputvalue.value.trim()
+            let todo = inputvalue.value.trim();
+
+            if (!todo) return;
+
+            if (todoList.includes(todo)) {
+                console.log("Duplicate Value")
+                alert("Duplicate Value")
+                inputvalue.value = ""
+                return;
+            }
+
+            todoList.push(todo)
+            addlocalStorage();
+            showTodo(todo);
+            inputvalue.value = ""
+
+        }
+
+        let removeTodo = (e) => {
+            console.log(e.target)
+            let remobeBtn = e.target
+            let removeElement = remobeBtn.previousElementSibling.innerText
+            let parentDiv = remobeBtn.parentElement
+            console.log(removeElement)
+
+            console.log(todoList)
+            todoList = todoList.filter((curEl)=>{
+                return curEl !== removeElement
+            })
+            console.log(todoList)
+            localStorage.setItem("localTodo", JSON.stringify(todoList))
+            parentDiv.remove()
+
+        }
+
+        addTodo.addEventListener("click", (e) => {
+            addTodoElem(e);
+        })
+
+        todoListElem.addEventListener("click",(e)=>{
+            e.preventDefault();
+            if(e.target.classList.contains("dletebtn")){
+            removeTodo(e);
+            }
+        })
+    </script>
+</body>
+
+</html>
