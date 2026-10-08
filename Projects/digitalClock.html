@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+        integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Digital Clock</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box; */
+        }
+        body {
+            position: relative;
+            height: 90vh;
+            background-color: #354248;
+        }
+
+        .container {
+            width: 40%;
+            /* background-color: aqua; */
+            display: flex;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .clockHolder {
+            width: 100%;
+            height: 200px;
+            background-color: #1b252a;
+            border-radius: 20px;
+            display: flex;
+            border: 3px solid rgb(255, 255, 25);
+            position: relative;
+
+        }
+
+        .clockHolder::before{
+            content: "";
+            position: absolute;
+            width: 60%;
+            border: 4px solid rgb(255, 255, 25);
+            border-radius: 0  0 4px 4px;
+            bottom: -5%;
+            left: 50%;
+            transform: translate(-50%,0);
+        }
+        .clockHolder::after{
+            content: "";
+            position: absolute;
+            width: 110%;
+            height: 3px;
+            border: 4px solid rgb(255, 255, 25);
+            border-radius: 100%;
+            bottom: -14%;
+            left: 50%;
+            transform: translate(-50%,0);
+            filter: blur(10px);
+            
+        }
+        .timeHolder{
+            width: 80%;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .timeOptions{
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-direction: column;
+            color: aliceblue;
+        }
+        .mainDiv p{
+            color: rgb(33, 175, 222);
+            font-size: 80px;
+            display: flex;
+            align-items: center;
+        }
+        .mainDiv{
+            width: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="clockHolder">
+            <div class="timeHolder">
+                <div class="timeOptions">
+                    <i class="fas fa-clock" data-title="Time"></i>
+                    <i class="fas fa-stopwatch" data-title="StopWatch"></i>
+                    <i class="far fa-clock" data-title="CountDown"></i>
+                </div>
+                <div class="mainDiv">
+                    <p id="clock"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentTime = () =>{
+            let time  = new Date().toLocaleTimeString()
+            document.getElementById("clock").innerText = `${time}`
+            console.log(time)
+        }
+        currentTime();
+
+        setInterval(()=>{
+            currentTime()
+        },1000)
+    </script>
+</body>
+
+</html>
