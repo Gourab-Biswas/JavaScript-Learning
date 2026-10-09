@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 20%;
+            height: 70%;
+            background-color: rgb(33, 40, 40);
+            border: 2px solid black;
+            padding: 10px;
+            overflow: hidden;
+            overflow-y: auto;
+            /* scroll-behavior: hideen; */
+        }
+
+        .display-time {
+            width: 100%;
+            /* height: 50px; */
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: whitesmoke;
+            font-size: 70px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        button {
+            font-size: 20px;
+            text-transform: uppercase;
+            border-radius: 10px;
+            border: none;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(181, 197, 211);
+        }
+
+        #clr {
+            grid-row: 3/4;
+            grid-column: 1/3;
+        }
+        .resetValue{
+            text-align: center;
+            color: aliceblue;
+            margin-top: 20px;
+            font-size: 25px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="display-time">
+            0
+        </div>
+        <div class="buttons">
+            <button id="start">start</button>
+            <button id="stopp">stop</button>
+            <button id="reset">reset</button>
+            <button id="lap">lap</button>
+            <button id="clr">clr</button>
+        </div>
+        <div class="resetValue">
+           
+        </div>
+    </div>
+    <script>
+        let countDownElem = document.querySelector(".display-time")
+        let resetValue = document.querySelector(".resetValue")
+
+        let time = 0;
+        let intervalId;
+
+
+        let start = () => {
+            intervalId = setInterval(() => {
+                countDownElem.innerHTML = ++time
+            }, 1000)
+        }
+
+        let stopp = () => {
+            clearInterval(intervalId)
+        }
+
+        let reset = () => {
+            time = 0
+            countDownElem.innerHTML = "0"
+            clearInterval(intervalId)
+        }
+
+        let lap = () => {
+            let newPara = document.createElement("p")
+            newPara.innerText = `The Lap Time is ${time}`
+            resetValue.append(newPara)
+        }
+
+        let clr = () => {
+            resetValue.innerHTML = ""
+        }
+
+        document.getElementById("start").addEventListener("click", () => start())
+        document.getElementById("stopp").addEventListener("click", () => stopp())
+        document.getElementById("reset").addEventListener("click", () => reset())
+        document.getElementById("lap").addEventListener("click", () => lap())
+        document.getElementById("clr").addEventListener("click", () => clr())
+    </script>
+</body>
+
+</html>
