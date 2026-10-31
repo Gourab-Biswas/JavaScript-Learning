@@ -125,3 +125,32 @@
 
 // let num = [1,2,3,]
 // console.log(num)
+
+//! Es - 2018
+
+// let numbers  = [1,2,3,4]
+// let [a,b,...c]= numbers
+// console.log(c)
+
+// let x = [1,2,3,4]
+// let sum = (a,b,c,d)=>{
+//     return a+b+c+d;
+// }
+
+// console.log(sum(...x))
+
+//objects
+
+// let student = {
+//     age:22,
+//     name:"vinod",
+//     isStudent: true
+// }
+
+// let {age,...others} = student
+// console.log(others)
+
+let obj1 = {a:1,b:2,c:3}
+let obj2 = {c:4,d:5,e:6}
+let obj3 = {...obj1,...obj2}
+console.log(obj3) 
