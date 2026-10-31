@@ -115,3 +115,13 @@
 //     return sum
 // }
 // console.log(fun(10,2,3))
+
+//! Es - 2017
+
+// let str = "gourab"
+
+// console.log(str.padStart(10,"."))
+// console.log(str.padEnd(10))
+
+// let num = [1,2,3,]
+// console.log(num)
