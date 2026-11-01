@@ -150,7 +150,48 @@
 // let {age,...others} = student
 // console.log(others)
 
-let obj1 = {a:1,b:2,c:3}
-let obj2 = {c:4,d:5,e:6}
-let obj3 = {...obj1,...obj2}
-console.log(obj3) 
+// let obj1 = {a:1,b:2,c:3}
+// let obj2 = {c:4,d:5,e:6}
+// let obj3 = {...obj1,...obj2}
+// console.log(obj3) 
+
+
+//! Es - 2019
+
+// let arr = ["apple","banana"];
+
+// let newArr = arr.flatMap((cur)=>{
+//     return cur.split("")
+// })
+// console.log(newArr)
+
+// let obj = {userName:"gourab",age:22}
+
+// let entries = Object.entries(obj)
+
+// console.log(entries)
+
+// let normal = Object.fromEntries(entries)
+
+// console.log(normal)
+
+// let str = "   gourab   "
+
+// console.log(str.trim())
+
+// let sm = Symbol(":)");
+
+// console.log(sm.description)
+
+
+
+// let x;
+// try{    
+//      x = 0/n
+// } catch{
+//     console.log("not possiable")
+// }
+
+// console.log(x)
+
+
