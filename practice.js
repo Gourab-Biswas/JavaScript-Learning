@@ -218,3 +218,17 @@
 // let cityx  = person.address ?. city ?? "not availabale";
 // console.log(cityx)
 
+//! ES 2021
+
+// let x = 2
+
+// x = x || 3 
+
+// console.log(x)
+
+
+// let y = 10
+
+// y &&= 20        
+
+// console.log(y)
