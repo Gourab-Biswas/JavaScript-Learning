@@ -195,3 +195,26 @@
 // console.log(x)
 
 
+
+//! ES 2020
+
+// let maxNum = Number.MAX_SAFE_INTEGER;
+// maxNum+=10
+// let val = 123n
+// val += 11n
+// console.log(typeof val);
+
+// let num = undefined
+
+// console.log(num ?? 11)
+
+// let person = {
+//     name:"gb",
+//     address:{
+//         city:"kolkata",
+//         zip:123
+//     }
+// }
+// let cityx  = person.address ?. city ?? "not availabale";
+// console.log(cityx)
+
