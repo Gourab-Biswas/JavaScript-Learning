@@ -232,3 +232,22 @@
 // y &&= 20        
 
 // console.log(y)
+
+
+//! ES 2022
+
+// let arr = [10,20,30,40]
+
+// console.log(arr.at(-1))
+
+// let student = Object.create(null)
+// let student  = {
+//     age:22
+// }
+
+// // student.name = "gourab"
+
+// console.log(student)
+// // console.log(student.hasOwnProperty("name"))
+// console.log(Object.hasOwn(student,"age"))
+
