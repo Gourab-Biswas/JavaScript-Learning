@@ -251,3 +251,21 @@
 // // console.log(student.hasOwnProperty("name"))
 // console.log(Object.hasOwn(student,"age"))
 
+//! ES 2023
+
+// let arr = [6,7,2,9,4,5,8,1]
+
+// console.log(
+//     arr.findLast((ele)=> ele )
+// )
+// console.log(
+//     arr.findLastIndex((ele)=> ele )
+// )
+
+// let arr = ["vinod","bahadur","thapa","kodifier"]
+
+// console.log(arr)
+// console.log(arr.toSorted())
+// console.log(arr.toReversed())
+// console.log(arr.toSpliced(1,0,"hii"))
+// console.log(arr.with(2,"kiiiiiiiiiiiiiiiiii"))
