@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nested Divs</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+      div {
+        border: 2px solid;
+        margin: 50px;
+        padding: 30px;
+      }
+      .outer {
+        background-color: antiquewhite;
+      }
+      .middle {
+        background-color: rgb(47, 159, 16);
+      }
+      .inner {
+        background-color: rgb(192, 16, 51);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <div class="outer dd">
+        Outer
+        <div class="middle dd">
+          Middle
+          <div class="inner dd">Inner</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <script>
+        let outerFun = (event) =>{
+            console.log("OUTER")
+            // console.table({targetEle:event.target})
+            // event.stopPropagation()
+        }
+        let middleFun = (event) =>{
+            console.log("MIDDLE")
+            // event.stopPropagation()
+        }
+        let innerFun = (event) =>{
+            console.log("INNER")
+            // event.stopPropagation()
+        }
+    document.querySelector(".outer").addEventListener("click",outerFun,true)
+    document.querySelector(".middle").addEventListener("click",middleFun,true)
+    document.querySelector(".inner").addEventListener("click",innerFun,true)
+    </script> -->
+
+    <script>
+
+        let handelDelegation = (event)=>{
+            
+            if(event.target.classList.contains("dd")){
+                console.log(event.target)
+            }
+        }
+    document.querySelector(".container").addEventListener("click",handelDelegation)
+
+    </script>
+  </body>
+</html>
