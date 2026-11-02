@@ -21,3 +21,25 @@
 // }
 
 // processuserInput("gourab",fun)
+
+//! CallBack Hell
+
+// let getStudentData = () =>{
+//     setTimeout(()=>{
+//         console.log("class 1")
+//         setTimeout(()=>{
+//             console.log("class 2")
+//             setTimeout(()=>{
+//                 console.log("class 3")
+//                 setTimeout(()=>{
+//                     console.log("class 4")
+//                     setTimeout(()=>{
+//                         console.log("class 5")
+//                     },1000)
+//                 },1000)
+//             },1000)
+//         },1000)
+//     },1000)
+// }
+
+// getStudentData()
