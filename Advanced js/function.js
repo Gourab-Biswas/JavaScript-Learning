@@ -79,3 +79,16 @@
 //     console.log(err)
 // })
 
+//! Async Await
+
+// let fun = async()=>{
+
+//     try{
+//         await console.log(0/k)
+//     }catch(err){
+//         console.log(err)
+//     }finally{
+//         console.log("_--___-__-_-___--_")
+//     }
+// }
+// fun()
