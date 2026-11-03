@@ -63,13 +63,18 @@
 
 
       let dadjoke = async() =>{
-        let res = await fetch(url,{
-            headers:{
-                Accept:"application/json"
-            }
-        })
-        let data  = await res.json()
-        para.innerText = data.joke
+        try{
+
+            let res = await fetch(url,{
+                headers:{
+                    Accept:"application/json"
+                }
+            })
+            let data  = await res.json()
+            para.innerText = data.joke
+        }catch(err){
+            console.log("Sorry Error")
+        }
       }
       dadjoke()
       document.querySelector(".btn").addEventListener("click",dadjoke)
