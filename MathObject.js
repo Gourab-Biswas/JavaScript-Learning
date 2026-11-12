@@ -14,3 +14,6 @@ console.log("----------------")
 // console.log((Math.random()*100))
 // console.log((Math.random()*100).toFixed(0))
 console.log(Math.trunc(Math.random()*100))
+
+
+//github 1
