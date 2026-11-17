@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Bind</title>
+</head>
+<body>
+    <button>Button Click</button>
+    <script>
+        class React{
+            constructor(){
+                this.server = `https://localhost:3000`
+                this.library = "JavaScript"
+
+                //requirement
+                //requirement
+                document
+                    .querySelector("button")
+                    .addEventListener("click",this.handelClick.bind(this))
+            }
+
+            handelClick(){
+                console.log("button Clicked Successfully")
+                console.log(this.server)
+                console.log(this.library)
+            }
+        }
+
+        const app = new React()
+
+        console.log(app)
+    </script>
+</body>
+</html>
